@@ -24,7 +24,7 @@ solve'' l (Instruction c f t) = do
     [if x == f then taken else if x == t then given else l !! x | x<-[0..8]]
 
 move :: String -> String -> Int -> String
-move s1 s2 i = reverse (take i s1) ++ s2
+move s1 s2 i = (take i s1) ++ s2
 
 parse:: String -> ([String], [Instruction])
 parse s = do
