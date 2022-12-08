@@ -14,7 +14,8 @@ solve = do
     handle <- openFile "input7" ReadMode
     content <- hGetContents handle
     let sp = tail $ splitOn "\n" <$> splitOn "$ " content
-    print $ solve' $ dirInt (Map (parse sp "")) (Map (parse sp ""))
+    let m = Map (parse sp "")
+    print $ solve' $ dirInt m m
 
 totalSize :: Int
 totalSize = 70000000
