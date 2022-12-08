@@ -32,14 +32,14 @@ sightLine :: [Int] -> Int -> Int
 sightLine [] _ = 0
 sightLine (x:xs) h
     | x < h = 1 + sightLine xs h
-    | x >= h = 1
-sightLine _ _ = 0
+    | otherwise = 1
 
 check :: [[Int]] -> (Int, Int) -> Int
 check l (x,y) = do
+    let value = grab l (x,y)
+
     let left = reverse $ take x (l !! y)
     let right = drop (x+1) (l !! y)
-    let value = grab l (x,y)
 
     let foundL = sightLine left value
     let foundR = sightLine right value
